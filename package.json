@@ -1,0 +1,101 @@
+{
+  "name": "@luxarionadm-design/vexorion",
+  "version": "2.0.1",
+  "description": "VexorionUUID - Modular UUID Generator with custom dependencies",
+  "type": "module",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./core": {
+      "import": "./dist/core/VexorionUUID.js",
+      "require": "./dist/core/VexorionUUID.cjs.js",
+      "types": "./dist/core/VexorionUUID.d.ts"
+    },
+    "./validator": {
+      "import": "./dist/core/VexorionValidator.js",
+      "require": "./dist/core/VexorionValidator.cjs.js",
+      "types": "./dist/core/VexorionValidator.d.ts"
+    },
+    "./generators": {
+      "import": "./dist/generators/index.js",
+      "require": "./dist/generators/index.cjs.js",
+      "types": "./dist/generators/index.d.ts"
+    },
+    "./utils": {
+      "import": "./dist/utils/index.js",
+      "require": "./dist/utils/index.cjs.js",
+      "types": "./dist/utils/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "MIGRATION.md",
+    "CONTRIBUTING.md",
+    "CODE_OF_CONDUCT.md"
+  ],
+  "scripts": {
+    "build": "tsup src/index.js src/core/*.js src/generators/*.js src/utils/*.js src/constants/*.js src/interfaces/*.js --format cjs,esm --dts --clean --out-dir dist",
+    "build:watch": "tsup src/index.js --format cjs,esm --dts --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ci": "vitest run --coverage --reporter=json --outputFile=coverage.json",
+    "lint": "eslint src/**/*.js tests/**/*.js",
+    "lint:fix": "eslint src/**/*.js tests/**/*.js --fix",
+    "format": "prettier --write src/**/*.js tests/**/*.js",
+    "prepublishOnly": "npm run build && npm test",
+    "version": "npm run build && git add -A dist",
+    "postversion": "git push && git push --tags",
+    "docs": "jsdoc -c jsdoc.json",
+    "clean": "rm -rf dist coverage .nyc_output"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^4.0.0",
+    "@vitest/coverage-v8": "^2.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^3.0.0",
+    "jsdoc": "^4.0.0"
+  },
+  "keywords": [
+    "uuid",
+    "vexorion",
+    "guid",
+    "generator",
+    "rfc4122",
+    "modular",
+    "crypto",
+    "typescript"
+  ],
+  "author": "luxarionadm-design",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luxarionadm-design/vexorion.git"
+  },
+  "bugs": {
+    "url": "https://github.com/luxarionadm-design/vexorion/issues"
+  },
+  "homepage": "https://github.com/luxarionadm-design/vexorion#readme",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
