@@ -2,6 +2,12 @@
 
 [![npm version](https://badge.fury.io/js/@luxarionadm-design%2Fvexorion.svg)](https://badge.fury.io/js/@luxarionadm-design%2Fvexorion)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://github.com/luxarionadm-design/vexorion/actions/workflows/ci.yml/badge.svg)](https://github.com/luxarionadm-design/vexorion/actions/workflows/ci.yml)
+[![Coverage Status](https://coveralls.io/repos/github/luxarionadm-design/vexorion/badge.svg?branch=main)](https://coveralls.io/github/luxarionadm-design/vexorion?branch=main)
+[![Downloads](https://img.shields.io/npm/dm/@luxarionadm-design/vexorion.svg)](https://www.npmjs.com/package/@luxarionadm-design/vexorion)
+[![Bundle Size](https://img.shields.io/bundlephobia/minzip/@luxarionadm-design/vexorion)](https://bundlephobia.com/package/@luxarionadm-design/vexorion)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![Maintained](https://img.shields.io/badge/maintained-yes-green.svg)](https://github.com/luxarionadm-design/vexorion)
 
 **VexorionUUID** - Modular UUID Generator dengan custom dependencies dan arsitektur yang fleksibel.
 
