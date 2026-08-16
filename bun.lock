@@ -1,0 +1,72 @@
+{
+  "name": "vexorion",
+  "version": "1.0.0",
+  "description": "Universal JavaScript Utility Library",
+  "type": "module",
+  "main": "dist/vexorion.js",
+  "module": "dist/vexorion.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vexorion.js",
+      "require": "./dist/vexorion.umd.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "build:watch": "rollup -c -w",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "lint": "eslint src/**/*.js",
+    "format": "prettier --write src/**/*.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "utility",
+    "javascript",
+    "library",
+    "fetch",
+    "storage",
+    "logger",
+    "toggle",
+    "form",
+    "debounce",
+    "throttle",
+    "timer",
+    "queue",
+    "encryption",
+    "hash",
+    "token",
+    "event-emitter",
+    "cache",
+    "polling",
+    "websocket",
+    "file",
+    "profiler",
+    "math",
+    "vector",
+    "matrix",
+    "quaternion",
+    "color"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^8.0.1",
+    "@babel/preset-env": "^8.0.2",
+    "@rollup/plugin-commonjs": "^29.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-terser": "^1.0.0",
+    "@vitest/coverage-v8": "^4.1.10",
+    "jsdom": "^30.0.1",
+    "rollup": "^4.62.4",
+    "vitest": "^4.1.10"
+  },
+  "dependencies": {}
+}
