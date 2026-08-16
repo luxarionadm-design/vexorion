@@ -1,10 +1,8 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
-import babel from '@rollup/plugin-babel';
 
 export default [
-  // ESM Build
   {
     input: 'src/index.js',
     output: {
@@ -14,15 +12,10 @@ export default [
     },
     plugins: [
       resolve(),
-      commonjs(),
-      babel({
-        babelHelpers: 'bundled',
-        presets: ['@babel/preset-env']
-      })
+      commonjs()
     ],
     external: []
   },
-  // Minified ESM Build
   {
     input: 'src/index.js',
     output: {
@@ -33,15 +26,10 @@ export default [
     plugins: [
       resolve(),
       commonjs(),
-      babel({
-        babelHelpers: 'bundled',
-        presets: ['@babel/preset-env']
-      }),
       terser()
     ],
     external: []
   },
-  // UMD Build (for browser)
   {
     input: 'src/index.js',
     output: {
@@ -52,11 +40,7 @@ export default [
     },
     plugins: [
       resolve(),
-      commonjs(),
-      babel({
-        babelHelpers: 'bundled',
-        presets: ['@babel/preset-env']
-      })
+      commonjs()
     ],
     external: []
   }
