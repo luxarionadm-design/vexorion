@@ -15,7 +15,8 @@ export default {
       type: 'umd',
       export: 'default'
     },
-    globalObject: 'this'
+    globalObject: 'this',
+    clean: true
   },
   module: {
     rules: [
@@ -25,7 +26,12 @@ export default {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
+            presets: [
+              ['@babel/preset-env', {
+                targets: '> 0.25%, not dead',
+                modules: false
+              }]
+            ]
           }
         }
       }
@@ -34,5 +40,13 @@ export default {
   resolve: {
     extensions: ['.js']
   },
-  externals: {}
+  externals: {},
+  devtool: 'source-map',
+  optimization: {
+    minimize: true
+  },
+  stats: {
+    modules: false,
+    children: false
+  }
 };
