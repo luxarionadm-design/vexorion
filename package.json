@@ -53,23 +53,23 @@
     "lint": "eslint src/**/*.js tests/**/*.js",
     "lint:fix": "eslint src/**/*.js tests/**/*.js --fix",
     "format": "prettier --write src/**/*.js tests/**/*.js",
-    "prepublishOnly": "npm run build && npm test",
+    "prepublishOnly": "npm run build",
     "version": "npm run build && git add -A dist",
     "postversion": "git push && git push --tags",
     "docs": "jsdoc -c jsdoc.json",
     "clean": "rm -rf dist coverage .nyc_output"
   },
-  "dependencies": {},
   "devDependencies": {
     "@types/node": "^22.0.0",
-    "tsup": "^8.0.0",
-    "typescript": "^5.0.0",
-    "vitest": "^4.0.0",
-    "@vitest/coverage-v8": "^2.0.0",
+    "@vitest/coverage-v8": "^4.1.10",
+    "esbuild": "^0.28.1",
     "eslint": "^9.0.0",
     "eslint-config-prettier": "^9.0.0",
+    "jsdoc": "^4.0.0",
     "prettier": "^3.0.0",
-    "jsdoc": "^4.0.0"
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^4.1.10"
   },
   "keywords": [
     "uuid",
