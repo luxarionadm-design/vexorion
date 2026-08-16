@@ -29,6 +29,40 @@ export { WebSocketModule } from './modules/websocket/index.js';
 export { FileModule } from './modules/file/index.js';
 export { ProfilerModule } from './modules/profiler/index.js';
 
+// Math
+export {
+    MathUtils,
+    DEG2RAD,
+    RAD2DEG,
+    generateUUID,
+    clamp,
+    euclideanModulo,
+    mapLinear,
+    inverseLerp,
+    lerp,
+    damp,
+    pingpong,
+    smoothstep,
+    smootherstep,
+    randInt,
+    randFloat,
+    randFloatSpread,
+    seededRandom,
+    degToRad,
+    radToDeg,
+    isPowerOfTwo,
+    ceilPowerOfTwo,
+    floorPowerOfTwo,
+    setQuaternionFromProperEuler,
+    normalize,
+    denormalize
+} from './utils/MathUtils.js';
+
+export { Vector2 } from './math/Vector2.js';
+export { Vector3 } from './math/Vector3.js';
+export { Vector4 } from './math/Vector4.js';
+export { Quaternion } from './math/Quaternion.js';
+
 // Utils
 export * from './utils/helpers.js';
 export * from './utils/validators.js';
