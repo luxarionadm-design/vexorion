@@ -1,0 +1,81 @@
+/**
+ * Constants - Shared Constants
+ * All global constants used across the library
+ */
+
+export const VERSION = '1.0.0';
+export const NAME = 'Vexorion';
+
+export const DEFAULT_TIMEOUT = 30000;
+export const DEFAULT_RETRY = 0;
+export const DEFAULT_PREFIX = 'vx_';
+
+export const LOG_LEVELS = {
+  DEBUG: 'debug',
+  INFO: 'info',
+  WARN: 'warn',
+  ERROR: 'error',
+  NONE: 'none'
+};
+
+export const STORAGE_TYPES = {
+  LOCAL: 'local',
+  SESSION: 'session',
+  COOKIE: 'cookie'
+};
+
+export const HTTP_METHODS = {
+  GET: 'GET',
+  POST: 'POST',
+  PUT: 'PUT',
+  PATCH: 'PATCH',
+  DELETE: 'DELETE',
+  HEAD: 'HEAD',
+  OPTIONS: 'OPTIONS'
+};
+
+export const HTTP_STATUS = {
+  OK: 200,
+  CREATED: 201,
+  ACCEPTED: 202,
+  NO_CONTENT: 204,
+  BAD_REQUEST: 400,
+  UNAUTHORIZED: 401,
+  FORBIDDEN: 403,
+  NOT_FOUND: 404,
+  INTERNAL_ERROR: 500,
+  BAD_GATEWAY: 502,
+  SERVICE_UNAVAILABLE: 503
+};
+
+export const ERROR_CODES = {
+  ABSTRACT_CLASS_ERROR: 'ABSTRACT_CLASS_ERROR',
+  SINGLETON_ERROR: 'SINGLETON_ERROR',
+  INVALID_CONFIG: 'INVALID_CONFIG',
+  INVALID_CALLBACK: 'INVALID_CALLBACK',
+  INVALID_LOG_LEVEL: 'INVALID_LOG_LEVEL',
+  INVALID_TIMEOUT: 'INVALID_TIMEOUT',
+  INVALID_RETRY: 'INVALID_RETRY',
+  INVALID_DELAY: 'INVALID_DELAY',
+  VALIDATION_ERROR: 'VALIDATION_ERROR',
+  WAIT_FOR_TIMEOUT: 'WAIT_FOR_TIMEOUT',
+  STORAGE_ERROR: 'STORAGE_ERROR',
+  ENCRYPTION_ERROR: 'ENCRYPTION_ERROR',
+  TOKEN_ERROR: 'TOKEN_ERROR',
+  WEBSOCKET_ERROR: 'WEBSOCKET_ERROR',
+  FILE_ERROR: 'FILE_ERROR'
+};
+
+export const ENCRYPTION_ALGORITHMS = {
+  AES: 'AES-GCM',
+  DES: 'DES-CBC'
+};
+
+export const HASH_ALGORITHMS = {
+  SHA256: 'SHA-256',
+  SHA512: 'SHA-512',
+  MD5: 'MD5'
+};
+
+export const DEFAULT_STORAGE_EXPIRY = 86400; // 24 hours in seconds
+export const MAX_STORAGE_ITEM_SIZE = 1048576; // 1MB
