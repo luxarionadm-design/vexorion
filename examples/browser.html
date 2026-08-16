@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VexorionUUID Browser Example</title>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 20px; background: #f5f5f5; }
+    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .uuid { background: #f0f0f0; padding: 10px; border-radius: 6px; font-family: monospace; margin: 10px 0; word-break: break-all; }
+    button { background: #0066ff; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-size: 16px; margin: 5px; }
+    button:hover { background: #0055dd; }
+    .info { background: #e8f5e9; padding: 10px; border-radius: 6px; margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🚀 VexorionUUID Demo</h1>
+    <div>
+      <button onclick="generateV4()">Generate v4</button>
+      <button onclick="generateV7()">Generate v7</button>
+      <button onclick="generateSecure()">Generate Secure</button>
+      <button onclick="generateBatch()">Generate Batch</button>
+    </div>
+    
+    <div id="output" class="uuid">Click a button to generate UUID</div>
+    <div id="info" class="info"></div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "@luxarionadm-design/vexorion": "https://unpkg.com/@luxarionadm-design/vexorion@2.0.0/dist/index.esm.js"
+        }
+      }
+    </script>
+    <script type="module">
+      import VexorionUUID from '@luxarionadm-design/vexorion';
+      
+      window.VexorionUUID = VexorionUUID;
+      
+      window.generateV4 = () => {
+        const uuid = VexorionUUID.generate();
+        display(uuid, VexorionUUID.getInfo(uuid));
+      };
+      
+      window.generateV7 = () => {
+        const uuid = VexorionUUID.generateV7();
+        const info = VexorionUUID.getInfo(uuid);
+        const timestamp = new Date(VexorionUUID.getTimestamp(uuid));
+        display(uuid, { ...info, timestamp: timestamp.toISOString() });
+      };
+      
+      window.generateSecure = () => {
+        const uuid = VexorionUUID.generateSecure();
+        display(uuid, VexorionUUID.getInfo(uuid));
+      };
+      
+      window.generateBatch = () => {
+        const batch = VexorionUUID.generateBatch(5);
+        const output = document.getElementById('output');
+        output.innerHTML = batch.map((u, i) => `<div>${i+1}. ${u}</div>`).join('');
+        document.getElementById('info').textContent = `Generated ${batch.length} UUIDs`;
+      };
+      
+      function display(uuid, info) {
+        document.getElementById('output').textContent = uuid;
+        document.getElementById('info').innerHTML = Object.entries(info)
+          .filter(([_, v]) => v !== null && v !== undefined)
+          .map(([k, v]) => `${k}: ${v}`)
+          .join(' | ');
+      }
+    </script>
+  </div>
+</body>
+</html>
