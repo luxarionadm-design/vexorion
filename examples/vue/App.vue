@@ -2,12 +2,10 @@
   <div id="app">
     <h1>🚀 Vexorion Vue Example</h1>
     
-    <!-- Dark Mode Toggle -->
     <button @click="toggleDarkMode">
       {{ darkMode ? '☀️ Light' : '🌙 Dark' }}
     </button>
 
-    <!-- Users -->
     <div class="section">
       <h2>Users</h2>
       <button @click="fetchUsers">Refresh</button>
@@ -19,7 +17,6 @@
       <p v-else>Loading...</p>
     </div>
 
-    <!-- Form -->
     <div class="section">
       <h2>Form</h2>
       <form @submit.prevent="handleSubmit">
@@ -32,13 +29,11 @@
       </p>
     </div>
 
-    <!-- Debounce Search -->
     <div class="section">
       <h2>Search</h2>
       <input v-model="searchQuery" placeholder="Type to search..." />
     </div>
 
-    <!-- Timer -->
     <div class="section">
       <h2>Timer</h2>
       <button @click="startTimer">Start</button>
@@ -47,7 +42,6 @@
       <div>{{ timerDisplay }}</div>
     </div>
 
-    <!-- Logger -->
     <div class="section">
       <h2>Logger</h2>
       <button @click="logInfo">Info</button>
@@ -82,7 +76,6 @@ export default {
     const timerDisplay = ref('00:00:00.000');
     const logs = ref([]);
 
-    // Toggle
     const toggle = vex.toggle(false);
     toggle.subscribe((isDark) => {
       darkMode.value = isDark;
@@ -90,9 +83,6 @@ export default {
       document.body.style.color = isDark ? '#ffffff' : '#000000';
     });
 
-    window.toggleDarkMode = () => toggle.toggle();
-
-    // Fetch
     const api = vex.fetch();
     const fetchUsers = async () => {
       loading.value = true;
@@ -107,7 +97,6 @@ export default {
     };
     fetchUsers();
 
-    // Form
     const formValidator = vex.form({
       initialValues: { name: '', email: '' },
       validate: (values) => {
@@ -127,7 +116,6 @@ export default {
       formErrors.value = Object.values(formValidator.getErrors());
     };
 
-    // Debounce
     const debouncer = vex.debounce({ delay: 300 });
     const debouncedSearch = debouncer.debounce((value) => {
       console.log('Searching for:', value);
@@ -137,7 +125,6 @@ export default {
       debouncedSearch(newVal);
     });
 
-    // Timer
     const timer = vex.timer();
     let timerInterval = null;
 
@@ -161,7 +148,6 @@ export default {
       timerDisplay.value = timer.getFormatted();
     };
 
-    // Logger
     const logger = vex.logger({ prefix: 'VUE', level: 'debug' });
     logger.subscribe((data) => {
       logs.value.unshift({
