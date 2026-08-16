@@ -1,6 +1,6 @@
 // src/math/Vector3.js
 
-import { clamp } from './MathUtils.js';
+import { clamp } from '../utils/MathUtils.js';
 import { Quaternion } from './Quaternion.js';
 
 class Vector3 {
