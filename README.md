@@ -1,26 +1,21 @@
-<!-- Banner / Header -->
-<p align="center">
-  <img src="https://img.shields.io/badge/vexorion-1.0.1-blue?style=for-the-badge&logo=npm" alt="npm version" />
-  <img src="https://img.shields.io/badge/license-MIT-green?style=for-the-badge" alt="License" />
-  <img src="https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge" alt="Build" />
-  <img src="https://img.shields.io/badge/coverage-92%25-success?style=for-the-badge" alt="Coverage" />
-</p>
+# @luxarionadm-design/vexorion
 
-<h1 align="center">⚡ Vexorion</h1>
-<p align="center">
-  <strong>Universal JavaScript Utility Library</strong><br />
-  Lightweight · Modular · Zero Dependencies
-</p>
+[![npm version](https://badge.fury.io/js/@luxarionadm-design%2Fvexorion.svg)](https://badge.fury.io/js/@luxarionadm-design%2Fvexorion)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-<p align="center">
-  <a href="#-installation">Installation</a> •
-  <a href="#-usage">Usage</a> •
-  <a href="#-features">Features</a> •
-  <a href="#-api">API</a> •
-  <a href="#-license">License</a>
-</p>
+**VexorionUUID** - Modular UUID Generator dengan custom dependencies dan arsitektur yang fleksibel.
 
----
+## ✨ Features
+
+- ✅ Support UUID v1, v3, v4, v5, v6, v7
+- 🔒 Cryptographically secure generation (Web Crypto / Node.js crypto)
+- 🎨 Branding support (`vxr-` prefix)
+- 🔄 Modular architecture with dependency injection
+- 📦 Registry pattern for custom generators
+- 🛠️ Utilities: Formatter, Converter, Validator
+- 🌐 Cross-platform (Node.js, Browser, Bun, Deno)
+- 💪 TypeScript support (JSDoc + types)
+- 🧪 Fully tested
 
 ## 📦 Installation
 
@@ -28,164 +23,154 @@
 npm install @luxarionadm-design/vexorion
 ```
 
-Or with Yarn:
+## 🚀 Quick Start
 
-```bash
-yarn add @luxarionadm-design/vexorion
-```
+```javascript
+import VexorionUUID, { generate, generateV7, brand } from '@luxarionadm-design/vexorion';
 
-Or with pnpm:
+// Generate UUID v4
+const id = VexorionUUID.generate();
 
-```bash
-pnpm add @luxarionadm-design/vexorion
-```
+// Generate UUID v7 dengan branding
+const id7 = VexorionUUID.generateV7();
 
----
+// Generate secure UUID
+const secure = VexorionUUID.generateSecure();
 
-## 🚀 Usage
+// With named imports
+const short = generateShort();
 
-🔹 Import Individual Functions
+// Custom configuration
+VexorionUUID.configure({
+  defaultVersion: 'v7',
+  branding: true,
+  prefix: 'myapp-'
+});
 
-```typescript
-import { useFetch, useToggle, useForm } from '@luxarionadm-design/vexorion';
-
-// Fetch API
-const api = new useFetch({ baseURL: 'https://api.example.com' });
-const users = await api.get('/users');
-
-// Toggle state
-const darkMode = useToggle(false);
-darkMode.toggle();
-console.log(darkMode.value); // true
-
-// Form management
-const form = useForm({
-  initialValues: { name: '', email: '' },
-  onSubmit: (values) => console.log('Submit:', values)
+// Register custom generator
+VexorionUUID.registerGenerator('myGen', MyCustomGenerator, {
+  default: true,
+  aliases: ['custom']
 });
 ```
 
-## 🔸 Using Vexorion Entry Point
+## 📚 API Reference
 
-```typescript
-import Vexorion from '@luxarionadm-design/vexorion';
+Generation Methods
 
-const vex = new Vexorion({
-  baseURL: 'https://api.example.com',
-  prefix: 'app_'
+· generate(options) - Generate UUID (default v4)
+· generateV1() - Time-based UUID
+· generateV3(namespace, name) - Name-based (MD5)
+· generateV4() - Random UUID
+· generateV5(namespace, name) - Name-based (SHA-1)
+· generateV6() - Time-ordered UUID
+· generateV7() - Time-sorted UUID
+· generateSecure() - Cryptographically secure
+· generateShort() - Short alphanumeric ID
+· generateNumeric(length) - Numeric ID
+· generateHex(length) - Hex ID
+· generateBatch(count, version) - Batch generation
+
+Validation Methods
+
+· isUUID(uuid) - Check if valid UUID
+· validate(uuid) - Alias for isUUID
+· validateDetailed(uuid) - Detailed validation with metadata
+· getVersion(uuid) - Get UUID version
+· getVariant(uuid) - Get UUID variant
+· getInfo(uuid) - Complete UUID info
+
+Formatting Methods
+
+· compact(uuid) - Remove dashes
+· expand(compact) - Add dashes
+· brand(uuid, prefix) - Add brand prefix
+· unbrand(uuid, prefix) - Remove brand prefix
+· isBranded(uuid) - Check if branded
+
+Conversion Methods
+
+· toBytes(uuid) - Convert to Uint8Array
+· fromBytes(bytes) - Convert from Uint8Array
+· toBase64(uuid) - Convert to Base64
+· fromBase64(base64) - Convert from Base64
+
+Utility Methods
+
+· getTimestamp(uuid) - Extract timestamp
+· equals(uuid1, uuid2) - Compare UUIDs
+· sort(uuids) - Sort UUIDs
+· increment(uuid) - Increment UUID
+· decrement(uuid) - Decrement UUID
+· createNamespace(name) - Create custom namespace
+· createFromString(str) - Deterministic UUID from string
+
+System Methods
+
+· getOSInfo() - Get OS information
+· getPlatform() - Get platform name
+· getNamespaces() - Get standard namespaces
+· getVersionNumber() - Library version
+· configure(options) - Configure global settings
+· reset() - Reset singleton instance
+
+## 🏗️ Architecture
+
+```
+VexorionUUID (Facade + Singleton)
+    ├── GeneratorRegistry (Registry Pattern)
+    │   ├── RandomGenerator (v4)
+    │   ├── CryptoGenerator (Secure v4)
+    │   └── TimeBasedGenerator (v1, v6, v7)
+    ├── VexorionValidator (Validation)
+    ├── Formatter (Formatting)
+    ├── Converter (Conversion)
+    └── OSDetector (Platform Detection)
+```
+
+## 🔧 Custom Generator
+
+```javascript
+import { BaseGenerator } from '@luxarionadm-design/vexorion';
+
+class MyCustomGenerator extends BaseGenerator {
+  constructor(options = {}) {
+    super({ version: 'custom', ...options });
+  }
+
+  _generate(options) {
+    // Your custom generation logic
+    return 'custom-uuid';
+  }
+
+  getVersion() {
+    return 'custom';
+  }
+
+  getName() {
+    return 'MyCustomGenerator';
+  }
+}
+
+// Register
+VexorionUUID.registerGenerator('custom', MyCustomGenerator, {
+  default: true,
+  aliases: ['my']
 });
 
-// Storage
-vex.localStorage().set('user', { name: 'Budi' });
-
-// Toggle with subscription
-const darkMode = vex.toggle(false);
-darkMode.subscribe((isDark) => {
-  document.body.classList.toggle('dark', isDark);
-});
-
-// Form
-const form = vex.form({
-  initialValues: { name: '', email: '' },
-  onSubmit: (values) => console.log(values)
-});
+// Use
+const id = VexorionUUID.generate({ version: 'custom' });
 ```
 
----
+## 🌐 Browser Support
 
-## ✨ Features
-
-Category Utilities
-🌐 Network Fetch, WebSocket, SSE, Polling
-💾 Storage LocalStorage, SessionStorage, Cookie
-🎛️ UI Utilities Toggle
-📝 Form Form Management, Validation
-⚡ Performance Debounce, Throttle, Memoize
-🧰 Utilities Logger, Cache, Queue, EventEmitter
-🔒 Security Encryption, Hash, Token
-📁 File FileUpload, FileReader
-🐞 Debug Profiler, Timer
-
----
-
-## 📖 API
-
-useFetch(options)
-
-Create an HTTP client with built-in interceptors.
-
-```typescript
-const api = useFetch({ baseURL: 'https://api.example.com' });
-await api.get('/users');
-await api.post('/users', { name: 'Budi' });
+```html
+<script type="module">
+  import { generate } from 'https://unpkg.com/@luxarionadm-design/vexorion';
+  console.log(generate());
+</script>
 ```
 
-useToggle(initialState)
-
-Manage boolean state with subscription.
-
-```typescript
-const toggle = useToggle(false);
-toggle.toggle();
-toggle.set(true);
-toggle.subscribe((value) => console.log(value));
-```
-
-useForm(config)
-
-Form handling with validation.
-
-```typescript
-const form = useForm({
-  initialValues: { email: '' },
-  validate: (values) => {
-    if (!values.email) return { email: 'Email is required' };
-  },
-  onSubmit: (values) => console.log(values)
-});
-```
-
----
-
-🛠️ Development
-
-```bash
-# Clone repository
-git clone https://github.com/luxarionadm-design/vexorion.git
-
-# Install dependencies
-npm install
-
-# Run tests
-npm test
-
-# Build library
-npm run build
-
-# Watch mode
-npm run test:watch
-```
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please read our Contributing Guide first.
-
-1. Fork the repository
-2. Create your feature branch (git checkout -b feature/amazing)
-3. Commit your changes (git commit -m 'Add some amazing feature')
-4. Push to the branch (git push origin feature/amazing)
-5. Open a Pull Request
-
----
-
-## 📄 License
+## 📝 License
 
 MIT © luxarionadm-design
-
----
-
-<p align="center">
-  Made with ❤️ by <a href="https://github.com/luxarionadm-design">luxarionadm-design</a>
-</p>
