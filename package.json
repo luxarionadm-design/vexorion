@@ -16,8 +16,7 @@
   },
   "files": [
     "dist",
-    "src",
-    "examples"
+    "src"
   ],
   "type": "module",
   "scripts": {
