@@ -1,6 +1,6 @@
 // src/math/Quaternion.js
 
-import { clamp } from './MathUtils.js';
+import { clamp } from '../utils/MathUtils.js';
 import { LoggerModule } from '../modules/logger/LoggerModule.js';
 
 const logger = new LoggerModule({ prefix: 'QUATERNION' });
