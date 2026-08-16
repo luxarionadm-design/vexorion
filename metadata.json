@@ -1,6 +1,0 @@
-{
-  "name": "Vexorion",
-  "description": "Universal JavaScript Utility Library with interactive playground, live documentation, and comprehensive testing suite.",
-  "requestFramePermissions": ["geolocation"],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
