@@ -1,0 +1,42 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .wave { 
+      fill: none; 
+      stroke: #1A237E; 
+      stroke-width: 4; 
+      stroke-linecap: round;
+    }
+    .mountain { 
+      fill: #4CAF50; 
+      stroke: #2E7D32; 
+      stroke-width: 2; 
+    }
+    .sun {
+      fill: #FFD54F;
+    }
+    .cloud {
+      fill: #ECEFF1;
+      opacity: 0.8;
+    }
+  </style>
+  
+  <rect width="400" height="300" fill="#E3F2FD"/>
+  
+  <!-- Matahari -->
+  <circle cx="330" cy="60" r="30" class="sun"/>
+  
+  <!-- Awan -->
+  <ellipse cx="120" cy="50" rx="40" ry="20" class="cloud"/>
+  <ellipse cx="150" cy="45" rx="30" ry="18" class="cloud"/>
+  
+  <!-- Gunung -->
+  <path d="M 0,250 L 80,120 L 160,250 Z" class="mountain"/>
+  <path d="M 120,250 L 220,90 L 320,250 Z" class="mountain"/>
+  <path d="M 260,250 L 340,140 L 400,250 Z" class="mountain"/>
+  
+  <!-- Gelombang air -->
+  <path d="M 0,270 Q 30,250 60,270 T 120,270 T 180,270 T 240,270 T 300,270 T 360,270 T 400,270" class="wave"/>
+  
+  <!-- Gelombang kedua -->
+  <path d="M 0,290 Q 30,270 60,290 T 120,290 T 180,290 T 240,290 T 300,290 T 360,290 T 400,290" class="wave" stroke-width="2" opacity="0.5"/>
+</svg>
