@@ -3,13 +3,11 @@
  * Entry point that exports all public APIs
  */
 
-// Core
 export { Vexorion } from './core/Vexorion.js';
 export { Module } from './core/Module.js';
 export { Observable } from './core/Observable.js';
 export { Singleton } from './core/Singleton.js';
 
-// Modules
 export { FetchModule } from './modules/fetch/index.js';
 export { StorageModule } from './modules/storage/index.js';
 export { ToggleModule } from './modules/toggle/index.js';
@@ -29,7 +27,6 @@ export { WebSocketModule } from './modules/websocket/index.js';
 export { FileModule } from './modules/file/index.js';
 export { ProfilerModule } from './modules/profiler/index.js';
 
-// Math
 export {
     MathUtils,
     DEG2RAD,
@@ -62,13 +59,16 @@ export { Vector2 } from './math/Vector2.js';
 export { Vector3 } from './math/Vector3.js';
 export { Vector4 } from './math/Vector4.js';
 export { Quaternion } from './math/Quaternion.js';
+export { Matrix2 } from './math/Matrix2.js';
+export { Matrix3 } from './math/Matrix3.js';
+export { Matrix4 } from './math/Matrix4.js';
+export { Color } from './math/Color.js';
+export { ColorSpace } from './math/ColorSpace.js';
 
-// Utils
 export * from './utils/helpers.js';
 export * from './utils/validators.js';
 export * from './utils/formatters.js';
 
-// Shared
 export * from './shared/constants.js';
 export * from './shared/types.js';
 export * from './shared/errors.js';
