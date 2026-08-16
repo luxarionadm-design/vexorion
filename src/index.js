@@ -62,6 +62,7 @@ export { Quaternion } from './math/Quaternion.js';
 export { Matrix2 } from './math/Matrix2.js';
 export { Matrix3 } from './math/Matrix3.js';
 export { Matrix4 } from './math/Matrix4.js';
+export { Euler } from './math/Euler.js';
 export { Color } from './math/Color.js';
 export { ColorSpace } from './math/ColorSpace.js';
 
