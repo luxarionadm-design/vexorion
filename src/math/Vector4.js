@@ -1,6 +1,6 @@
 // src/math/Vector4.js
 
-import { clamp } from './MathUtils.js';
+import { clamp } from '../utils/MathUtils.js';
 
 class Vector4 {
 
