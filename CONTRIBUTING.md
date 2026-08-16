@@ -55,3 +55,42 @@ npm test
 
 # Watch mode
 npm run test:watch
+```
+
+Code Style
+
+· Use ES modules
+· Follow JavaScript Standard Style
+· Use JSDoc for documentation
+· Write meaningful variable names
+· Add tests for new features
+
+Commit Message Convention
+
+We follow Conventional Commits:
+
+· feat: new feature
+· fix: bug fix
+· docs: documentation changes
+· style: formatting changes
+· refactor: code refactoring
+· test: adding tests
+· chore: maintenance tasks
+
+Example: feat: add support for UUID v8
+
+Testing
+
+· All new features must include tests
+· Maintain 100% coverage for core features
+· Run tests locally before submitting PR
+
+Documentation
+
+· Update README.md with new features
+· Add JSDoc to all public APIs
+· Update examples if needed
+
+Questions?
+
+Feel free to open an issue for questions or discussion.
